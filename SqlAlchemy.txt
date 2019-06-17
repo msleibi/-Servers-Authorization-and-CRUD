@@ -1,0 +1,52 @@
+ 
+ ************* to write a query ****************
+ session.query(TheClassName).all()
+ 
+ items = session.query(MenuItem).all()
+>>> for item in items:
+...     print item.name
+
+
+************* to add ****************
+
+new_restaurant = Restaurant(name = "Pizza Hutt")
+session.add(new_restaurant)
+session.commit()
+
+
+
+************** to update *******************
+
+veggieBergers = session.query(MenuItem).filter_by(name = 'Veggie Berger')
+
+for veggieBerger in veggieBergers
+	print veggieBerger.id
+	print veggieBerger.name
+	print veggieBerger.price
+	print veggieBerger.restaurant.name
+	print "\n"
+	
+UrbanVeggieBurger = session.query(MenuItem).filter_by(id = ??).one()
+
+UrbanVeggieBurger.price = '$2.99'
+
+session.add(UrbanVeggieBurger)
+session.commit()
+
+*** for all records: ***
+
+for veggieBerger in veggieBergers:
+	if veggieBerger.price !='$2.99':
+		veggieBerger.price = '$2.99'
+		session.add(veggieBerger)
+		session.commit()
+
+
+
+
+************** to delete *******************
+
+spinach = session.query(MenuItem).filter_by(name = 'Spinach Ice Cream').one()
+
+session.delete(spinach)
+session.commit()

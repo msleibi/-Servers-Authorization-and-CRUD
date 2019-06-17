@@ -20,7 +20,7 @@ class webserverHandler(BaseHTTPRequestHandler):
                         value='Submit'> </form>" 
                 output += "</body></html>"
                 self.wfile.write(output)
-                #print output
+                print output
                 return
             
             if self.path.endswith("/hola"):
@@ -39,7 +39,7 @@ class webserverHandler(BaseHTTPRequestHandler):
                         value='Submit'> </form>" 
                 output += "</body></html>"
                 self.wfile.write(output)
-                #print output
+                print output
                 return
             
 
