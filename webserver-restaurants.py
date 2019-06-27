@@ -30,7 +30,7 @@ class webserverHandler(BaseHTTPRequestHandler):
                 output += "<a href='/restaurants'>Go to Restaurants Page</a><br><br>"
                 output += "</body></html>"
                 self.wfile.write(output)
-                #print output
+                print output
                 return
                        
             
