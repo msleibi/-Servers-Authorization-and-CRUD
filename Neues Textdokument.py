@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from flask import Flask, render_template, request, redirect, url_for, flash
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -64,10 +62,10 @@ def deleteMenuItem(restaurant_id, menu_id):
         flash("Menu Item has been deleted")
         return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
     else:
-        return render_template('deletemenuitem.html', item=itemToDelete)
+        return render_template('deleteconfirmation.html', item=itemToDelete)
 
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
-    app.run(host = '0.0.0.0', port = 5000)
+app.run(host='0.0.0.0', port=5000)
