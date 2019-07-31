@@ -6,16 +6,36 @@
 
 <h1>Restaurants</h1>
 
+
+
 <div class = 'pane'>
-{% for restaurant in restaurants %}
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+<a href = "{{url_for('newRestaurant')}}"> Create new restaurant</a>
+
+{% for restaurants in restaurant %}
+
+
 
 <div>
 
-<a href = "{{url_for('showMenu', restaurant_id = restaurant.id)}}"> <h3>{{restaurant.name}}</h3></a>
 
-<p><a href = "{{url_for('editRestaurant',restaurant_id = restaurant.id)}}">Edit Restaurant</a></p>
+<a href = "{{url_for('restaurantMenu',restaurant_id = restaurants.id)}}"> <h3>{{restaurants.id}}. {{restaurants.name}}</h3></a>
 
-<p> <a href = "{{url_for('deleteRestaurant',restaurant_id = restaurant.id)}}">Delete Restaurant</a> </p>
+<p><a href = "{{url_for('editRestaurant',restaurant_id = restaurants.id)}}">Edit </a>
+<a href = "{{url_for('deleteRestaurant',restaurant_id = restaurants.id)}}">Delete </a></p>
+
 
 </div>
 

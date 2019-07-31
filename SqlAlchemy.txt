@@ -1,3 +1,22 @@
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+from database_setup import Base, Categories, Items 
+engine = create_engine('sqlite:///catalogapp.db')
+
+Base.metadata.bind = engine
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
+ 
+ <a href = '{{url_for('restaurantAll')}}'> Cancel </a>
+ 
+ 
+ ***************** For Catalog **********************
+ category= session.query(Categories).all()
+ 
+ items= session.query(Items).all()
+ 
+ 
  
  ************* to write a query ****************
  session.query(TheClassName).all()
@@ -6,6 +25,9 @@
 >>> for item in items:
 ...     print item.name
 
+
+
+items = session.query(Items).all()
 
 ************* to add ****************
 
